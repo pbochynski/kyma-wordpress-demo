@@ -1,5 +1,7 @@
+# Installation guide
 
-# Wordpress
+[Install Kyma](https://kyma-project.io/docs/master/root/kyma#installation-installation) on Kubernetes cluster.
+Configure kubctl with Kyma Cluster.
 
 ## Deploy Wordpress in Kyma Cluster
 
