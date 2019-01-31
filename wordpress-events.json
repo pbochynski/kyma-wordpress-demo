@@ -1,0 +1,66 @@
+{
+    "provider": "WordPress",
+    "name": "wordpress-events",
+    "description": "Wordpress Events",
+    "labels": {
+        "connected-app": "wordpress"
+    },
+    "events": {
+        "spec": {
+            "asyncapi": "1.0.0",
+            "info": {
+                "title": "wp-events",
+                "version": "v1",
+                "description": "WP Events v1"
+            },
+            "topics": {
+                "user.created.v1": {
+                    "subscribe": {
+                        "summary": "User Register Event v1",
+                        "payload": {
+                            "type": "object",
+                            "required": [
+                                "userId"
+                            ],
+                            "properties": {
+                                "userId": {
+                                    "type": "string",
+                                    "description": "Id of a User",
+                                    "title": "User uid"
+                                }
+                            }
+                        }
+                    }
+                },
+                "comment.post.v1": {
+                    "subscribe": {
+                        "summary": "Comment Post Event v1",
+                        "payload": {
+                            "type": "object",
+                            "required": [
+                                "commentId"
+                            ],
+                            "properties": {
+                                "commentId": {
+                                    "type": "string",
+                                    "description": "Unique id of a comment",
+                                    "title": "Comment id"
+                                },
+                                "commentAuthorEmail": {
+                                    "type": "string",
+                                    "description": "Email of an author",
+                                    "title": "Authors email"
+                                },
+                                "commentContent": {
+                                    "type": "string",
+                                    "description": "Content of a comment",
+                                    "title": "Comment content"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
