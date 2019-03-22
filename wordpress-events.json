@@ -55,6 +55,11 @@
                                     "type": "string",
                                     "description": "Content of a comment",
                                     "title": "Comment content"
+                                },
+                                "postId": {
+                                    "type": "string",
+                                    "description": "Unique id of a post",
+                                    "title": "Post id"
                                 }
                             }
                         }
