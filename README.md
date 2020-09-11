@@ -43,8 +43,8 @@ kubectl edit -n kyma-integration application wordpress
 
 ```
 kubectl create namespace mocks
-kubectl label namespace mocks env=true
-kubectl -n mocks apply -f commerce-mock/commerce-mock-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/SAP/xf-application-mocks/master/commerce-mock/deployment/k8s.yaml -n mocks
+kubectl apply -f https://raw.githubusercontent.com/SAP/xf-application-mocks/master/commerce-mock/deployment/xf.yaml -n mocks
 ```
 
 Create application `commerce`. Go to https://commerce.KYMA_CLUSTER, and connect commerce mock to commerce application.
@@ -63,11 +63,11 @@ Create secret azure-broker-data and add Azure Broker to namespace stage.
 
 
 
-## Create Lambda
+## Create Function
 
-Create new lambda named `review`. Copy `review.js` content and paste as fucntion body. Copy `package.json` and paste as dependencies.
+Create new Function named `review`. Copy `review.js` content and paste as fucntion body. Copy `package.json` and paste as dependencies.
 Add trigger on comment.post.v1.
 
-## Bind lambda 
+## Bind Function 
 
-Go to service Catalog Instances view. Select commerce and bind it to review lambda with prefix `EC_`. Bind wordpress with prefix `WP_`
+Go to service Catalog Instances view. Select commerce and bind it to review the function with prefix `EC_`. Bind wordpress with prefix `WP_`
