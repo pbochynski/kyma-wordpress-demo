@@ -87,15 +87,21 @@ spec:
     app: wordpress
     tier: frontend
 ---
-apiVersion: gateway.kyma-project.io/v1alpha2
-kind: Api
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
 metadata:
     name: wordpress
 spec:
-    service:
-      name: wordpress
-      port: 80
-    hostname: wordpress
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  service:
+    name: wordpress
+    port: 80
+    host: wordpress
+  rules:
+    - path: /.*
+      methods: ["GET","POST","PUT","DELETE","HEAD"]
+      accessStrategies:
+        - handler: noop
 
 ---
 apiVersion: v1
